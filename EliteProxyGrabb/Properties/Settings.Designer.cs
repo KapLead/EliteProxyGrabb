@@ -25,7 +25,7 @@ namespace EliteProxyGrabb.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("64, 64, 64")]
+        [global::System.Configuration.DefaultSettingValueAttribute("44, 44, 44")]
         public global::System.Drawing.Color BackForm {
             get {
                 return ((global::System.Drawing.Color)(this["BackForm"]));

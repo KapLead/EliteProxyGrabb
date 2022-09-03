@@ -16,5 +16,14 @@ namespace EliteProxyGrabb
         {
             InitializeComponent();
         }
+
+        private void SelectTab(object sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                pAccept.Location = new Point(btn.Left,0);
+                pAccept.Size = new Size(btn.Width,pAccept.Height);
+            }
+        }
     }
 }

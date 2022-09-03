@@ -30,15 +30,15 @@ namespace EliteProxyGrabb
         private void InitializeComponent()
         {
             EliteProxyGrabb.Properties.Settings settings1 = new EliteProxyGrabb.Properties.Settings();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pAccept = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.proxyList1 = new EliteProxyGrabb.ProxyList();
+            this.proxyCompliteList1 = new EliteProxyGrabb.ProxyCompliteList();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,23 +56,13 @@ namespace EliteProxyGrabb
             this.panel1.Size = new System.Drawing.Size(698, 30);
             this.panel1.TabIndex = 2;
             // 
-            // button2
+            // pAccept
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::EliteProxyGrabb.Properties.Resources.check_box_mix;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(204, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 30);
-            this.button2.TabIndex = 2;
-            this.button2.Tag = "1";
-            this.button2.Text = "ИСПОЛЬЗОВАННЫЕ ПРОКСИ";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.SelectTab);
+            this.pAccept.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pAccept.Location = new System.Drawing.Point(0, 0);
+            this.pAccept.Name = "pAccept";
+            this.pAccept.Size = new System.Drawing.Size(206, 4);
+            this.pAccept.TabIndex = 4;
             // 
             // button3
             // 
@@ -93,6 +83,24 @@ namespace EliteProxyGrabb
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.SelectTab);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::EliteProxyGrabb.Properties.Resources.check_box_mix;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(204, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(189, 30);
+            this.button2.TabIndex = 2;
+            this.button2.Tag = "1";
+            this.button2.Text = "ИСПОЛЬЗОВАННЫЕ ПРОКСИ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.SelectTab);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -111,57 +119,53 @@ namespace EliteProxyGrabb
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.SelectTab);
             // 
-            // pAccept
-            // 
-            this.pAccept.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.pAccept.Location = new System.Drawing.Point(0, 0);
-            this.pAccept.Name = "pAccept";
-            this.pAccept.Size = new System.Drawing.Size(206, 4);
-            this.pAccept.TabIndex = 4;
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.proxyCompliteList1);
             this.panel2.Controls.Add(this.proxyList1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(698, 385);
+            this.panel2.Size = new System.Drawing.Size(698, 391);
             this.panel2.TabIndex = 3;
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 418);
+            this.panel3.Location = new System.Drawing.Point(3, 424);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(698, 29);
+            this.panel3.Size = new System.Drawing.Size(698, 23);
             this.panel3.TabIndex = 4;
             // 
             // proxyList1
             // 
             this.proxyList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            settings1.BackField = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(72)))));
-            settings1.BackForm = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            settings1.SelectBackItem = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             settings1.SettingsKey = "";
             this.proxyList1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", settings1, "BackForm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.proxyList1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proxyList1.Location = new System.Drawing.Point(0, 0);
             this.proxyList1.Name = "proxyList1";
-            this.proxyList1.Size = new System.Drawing.Size(698, 385);
+            this.proxyList1.Size = new System.Drawing.Size(591, 48);
             this.proxyList1.TabIndex = 0;
+            // 
+            // proxyCompliteList1
+            // 
+            this.proxyCompliteList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.proxyCompliteList1.Location = new System.Drawing.Point(0, 63);
+            this.proxyCompliteList1.Name = "proxyCompliteList1";
+            this.proxyCompliteList1.Size = new System.Drawing.Size(591, 48);
+            this.proxyCompliteList1.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = global::EliteProxyGrabb.Properties.Settings.Default.BackForm;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(704, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::EliteProxyGrabb.Properties.Settings.Default, "BackForm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Text = "ELITE PROXY GRABBER ";
@@ -180,6 +184,7 @@ namespace EliteProxyGrabb
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private ProxyList proxyList1;
+        private ProxyCompliteList proxyCompliteList1;
     }
 }
 

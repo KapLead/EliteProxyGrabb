@@ -58,6 +58,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxy.cs" />
+    <Compile Include="ProxyCompliteList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProxyCompliteList.Designer.cs">
+      <DependentUpon>ProxyCompliteList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProxyList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ProxyCompliteList.resx">
+      <DependentUpon>ProxyCompliteList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProxyList.resx">
       <DependentUpon>ProxyList.cs</DependentUpon>
     </EmbeddedResource>

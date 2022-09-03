@@ -1,7 +1,7 @@
 ﻿
 namespace EliteProxyGrabb
 {
-    partial class ProxyList
+    partial class ProxyCompliteList
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -48,7 +48,7 @@ namespace EliteProxyGrabb
             // 
             // listBox1
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(72)))));
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -201,16 +201,15 @@ namespace EliteProxyGrabb
             this.panel4.Size = new System.Drawing.Size(1, 26);
             this.panel4.TabIndex = 11;
             // 
-            // ProxyList
+            // ProxyCompliteList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::EliteProxyGrabb.Properties.Settings.Default, "BackForm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
-            this.Name = "ProxyList";
+            this.Name = "ProxyCompliteList";
             this.Size = new System.Drawing.Size(598, 404);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

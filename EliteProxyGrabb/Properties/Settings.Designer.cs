@@ -22,41 +22,5 @@ namespace EliteProxyGrabb.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("44, 44, 44")]
-        public global::System.Drawing.Color BackForm {
-            get {
-                return ((global::System.Drawing.Color)(this["BackForm"]));
-            }
-            set {
-                this["BackForm"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("72, 72, 72")]
-        public global::System.Drawing.Color BackField {
-            get {
-                return ((global::System.Drawing.Color)(this["BackField"]));
-            }
-            set {
-                this["BackField"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("120, 120, 120")]
-        public global::System.Drawing.Color SelectBackItem {
-            get {
-                return ((global::System.Drawing.Color)(this["SelectBackItem"]));
-            }
-            set {
-                this["SelectBackItem"] = value;
-            }
-        }
     }
 }

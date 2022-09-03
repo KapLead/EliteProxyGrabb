@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace EliteProxyGrabb
 {
-    public partial class ProxyList : UserControl
+    public partial class ProxyCompliteList : UserControl
     {
-        public ProxyList()
+        public ProxyCompliteList()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace EliteProxyGrabb
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds,
                     e.Index, e.State ^ DrawItemState.Selected,
-                    e.ForeColor,Color.FromArgb(90,90,90));
+                    e.ForeColor, Color.FromArgb(90, 90, 90));
             e.DrawBackground();
             Proxy p = listBox1.Items[e.Index] as Proxy;
             if(p==null) return;

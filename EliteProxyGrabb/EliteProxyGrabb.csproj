@@ -33,9 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>5.ico</ApplicationIcon>
+    <ApplicationIcon>BlueA.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.45.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.45\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +58,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LanFunc\CheckingProxies.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LanFunc\CheckingProxies.Designer.cs">
+      <DependentUpon>CheckingProxies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LanFunc\ExAgilityPack.cs" />
+    <Compile Include="LanFunc\Finder.cs" />
+    <Compile Include="LanFunc\Freeproxyupdate.cs" />
+    <Compile Include="LanFunc\IFinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxy.cs" />
@@ -70,8 +83,18 @@
     <Compile Include="ProxyList.Designer.cs">
       <DependentUpon>ProxyList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadBindingList.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LanFunc\CheckingProxies.resx">
+      <DependentUpon>CheckingProxies.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +112,10 @@
     <EmbeddedResource Include="ProxyList.resx">
       <DependentUpon>ProxyList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,9 +131,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="5.ico" />
+    <Content Include="BlueA.ico" />
+    <None Include="Resources\tg3.png" />
+    <None Include="Resources\tg.png" />
     <None Include="Resources\check_box_mix.png" />
     <None Include="Resources\check_box.png" />
     <None Include="Resources\setting_tools.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

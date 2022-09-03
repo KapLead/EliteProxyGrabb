@@ -1,13 +1,22 @@
 ﻿using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace EliteProxyGrabb
 {
     public partial class ProxyList : UserControl
     {
+        public ThreadBindingList<Proxy> Items { get; private set; }
         public ProxyList()
         {
             InitializeComponent();
+            Items = new ThreadBindingList<Proxy>();
+            listBox1.DataSource = Items;
+        }
+
+        public bool Contains(Proxy proxy)
+        {
+            return Items.FirstOrDefault(f => f.Ip == proxy.Ip && f.Port == proxy.Port) != null;
         }
 
         private StringFormat left = new StringFormat

@@ -7,6 +7,7 @@
         public string Country;
         public string Level;
         public string HostName;
+        public string Protocol;
         public string LastCheckData;
     }
 }

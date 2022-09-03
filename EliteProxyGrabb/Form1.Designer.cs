@@ -29,18 +29,24 @@ namespace EliteProxyGrabb
         /// </summary>
         private void InitializeComponent()
         {
-            EliteProxyGrabb.Properties.Settings settings1 = new EliteProxyGrabb.Properties.Settings();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pAccept = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.proxyList1 = new EliteProxyGrabb.ProxyList();
+            this.settings1 = new EliteProxyGrabb.Settings();
             this.proxyCompliteList1 = new EliteProxyGrabb.ProxyCompliteList();
+            this.proxyList1 = new EliteProxyGrabb.ProxyList();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.checkingProxies1 = new EliteProxyGrabb.LanFunc.CheckingProxies();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,6 +127,7 @@ namespace EliteProxyGrabb
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.settings1);
             this.panel2.Controls.Add(this.proxyCompliteList1);
             this.panel2.Controls.Add(this.proxyList1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -129,31 +136,77 @@ namespace EliteProxyGrabb
             this.panel2.Size = new System.Drawing.Size(698, 391);
             this.panel2.TabIndex = 3;
             // 
+            // settings1
+            // 
+            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.settings1.Location = new System.Drawing.Point(0, 0);
+            this.settings1.Name = "settings1";
+            this.settings1.Size = new System.Drawing.Size(698, 391);
+            this.settings1.TabIndex = 2;
+            // 
+            // proxyCompliteList1
+            // 
+            this.proxyCompliteList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.proxyCompliteList1.Location = new System.Drawing.Point(0, 0);
+            this.proxyCompliteList1.Name = "proxyCompliteList1";
+            this.proxyCompliteList1.Size = new System.Drawing.Size(698, 55);
+            this.proxyCompliteList1.TabIndex = 1;
+            // 
+            // proxyList1
+            // 
+            this.proxyList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.proxyList1.Location = new System.Drawing.Point(0, 0);
+            this.proxyList1.Name = "proxyList1";
+            this.proxyList1.Size = new System.Drawing.Size(698, 50);
+            this.proxyList1.TabIndex = 0;
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.checkingProxies1);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(3, 424);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(698, 23);
             this.panel3.TabIndex = 4;
             // 
-            // proxyList1
+            // checkingProxies1
             // 
-            this.proxyList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            settings1.SettingsKey = "";
-            this.proxyList1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", settings1, "BackForm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.proxyList1.Location = new System.Drawing.Point(0, 0);
-            this.proxyList1.Name = "proxyList1";
-            this.proxyList1.Size = new System.Drawing.Size(591, 48);
-            this.proxyList1.TabIndex = 0;
+            this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
+            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
+            this.checkingProxies1.Name = "checkingProxies1";
+            this.checkingProxies1.ProxyCompliteList = null;
+            this.checkingProxies1.ProxyList = null;
+            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
+            this.checkingProxies1.TabIndex = 1;
             // 
-            // proxyCompliteList1
+            // label1
             // 
-            this.proxyCompliteList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.proxyCompliteList1.Location = new System.Drawing.Point(0, 63);
-            this.proxyCompliteList1.Name = "proxyCompliteList1";
-            this.proxyCompliteList1.Size = new System.Drawing.Size(591, 48);
-            this.proxyCompliteList1.TabIndex = 1;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label1.Location = new System.Drawing.Point(644, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "KapLead";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Click += new System.EventHandler(this.Community);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::EliteProxyGrabb.Properties.Resources.tg3;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(619, 420);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.Community);
             // 
             // Form1
             // 
@@ -161,16 +214,19 @@ namespace EliteProxyGrabb
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(704, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::EliteProxyGrabb.Properties.Settings.Default, "BackForm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Text = "ELITE PROXY GRABBER ";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,8 +239,12 @@ namespace EliteProxyGrabb
         private System.Windows.Forms.Panel pAccept;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private ProxyList proxyList1;
+        private Settings settings1;
         private ProxyCompliteList proxyCompliteList1;
+        private ProxyList proxyList1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private LanFunc.CheckingProxies checkingProxies1;
     }
 }
 

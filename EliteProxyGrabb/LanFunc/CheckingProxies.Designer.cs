@@ -47,7 +47,7 @@ namespace EliteProxyGrabb.LanFunc
             // timerCheckActuality
             // 
             this.timerCheckActuality.Enabled = true;
-            this.timerCheckActuality.Interval = 3500;
+            this.timerCheckActuality.Interval = 350;
             this.timerCheckActuality.Tick += new System.EventHandler(this.timerCheckActuality_Tick);
             // 
             // label1

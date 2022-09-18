@@ -16,15 +16,16 @@ namespace EliteProxyGrabb.LanFunc
         public ProxyCompliteList ProxyCompliteList { get; set; }
         public bool IsChecking { get; private set; }
         public ThreadBindingList<Proxy> NewProxy = new ThreadBindingList<Proxy>();
+        public ThreadBindingList<Proxy> Working = new ThreadBindingList<Proxy>();
         public int CountNewProxies { get; private set; } = 0;
         HtmlWeb web = new HtmlWeb();
         public CheckingProxies()
         {
             InitializeComponent();
-
         }
 
-        public void SetInterval(int refinding = 900, int checkingnewproxy = 3500)
+
+        public void SetInterval(int refinding = 900, int checkingnewproxy = 350)
         {
             timer.Interval = refinding;
             timerCheckActuality.Interval = checkingnewproxy;
@@ -90,6 +91,7 @@ namespace EliteProxyGrabb.LanFunc
             List<Proxy> ret = new List<Proxy>();
             foreach (Proxy proxy in ret)
             {
+                if(proxy.Protocol==null) continue;
                 if (ProxyList.Contains(proxy)) continue;
                 if (ProxyCompliteList.Contains(proxy)) continue;
                 ret.Add(proxy);
@@ -107,16 +109,18 @@ namespace EliteProxyGrabb.LanFunc
             NewProxy.RemoveAt(0);
         }
 
+        private bool isTest = false;
         public async Task Check(Proxy p)
         {
-            if (p == null) return;
+            if (p == null || isTest || p.Protocol==null) return;
+            isTest = true;
             string protool = p.Protocol?.ToLower()?.Trim();
             try
             {
                 if (protool.StartsWith("http"))
                 {
                     var http = new HtmlAgilityPack.HtmlDocument();
-                    WebClient wc = new WebClient
+                    MyWebClient wc = new MyWebClient
                     {
                         Proxy = new WebProxy
                         {
@@ -125,10 +129,20 @@ namespace EliteProxyGrabb.LanFunc
                     };
                     var html = await wc.DownloadStringTaskAsync("https://www.babaip.com/");
                     http.LoadHtml(html);
-                    var ret = http.DocumentNode.InnerText;
-                    ;
+                    var txt = http.DocumentNode.SelectNodes("//b").First().InnerHtml
+                        .Replace("<br>","\n")
+                        .Replace("</br>","\n")
+                        .Replace("&#69;","E")
+                        .Split('\n')
+                        .Where(s=>!string.IsNullOrWhiteSpace(s))
+                        .Select(s=>s.Contains("<")?s.Substring(0,s.IndexOf("<", StringComparison.Ordinal)):s)
+                        .ToArray();
+                    p.Country = txt?.FirstOrDefault(s => s.StartsWith("Country Code"))?.Split(':')?.Last()?.Trim();
+                    p.HostName = txt?.FirstOrDefault(s => s.StartsWith("Hostname"))?.Split(':')?.Last()?.Trim();
+                    p.LastCheckData = DateTime.Now.ToString("u");
+                    p.Level= txt?.FirstOrDefault(s => s.StartsWith("Proxy Anonymity Level"))?.Split(':')?.Last()?.Trim();
                 }
-
+                else
                 if (protool.StartsWith("socks"))
                 {
                     var proxy = new WebProxy();
@@ -141,12 +155,23 @@ namespace EliteProxyGrabb.LanFunc
                     var tmp = doc.DocumentNode.InnerText;
                     ;
                 }
+                Working.Add(p);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+            isTest = false;
+        }
+    }
 
+    public class MyWebClient : WebClient
+    {
+        protected override WebRequest GetWebRequest(Uri uri)
+        {
+            WebRequest w = base.GetWebRequest(uri);
+            w.Timeout = 10000;
+            return w;
         }
     }
 }

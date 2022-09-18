@@ -13,8 +13,8 @@ namespace EliteProxyGrabb
             InitializeComponent();
             Load+= OnLoad;
             Shown+= OnShown;
-            checkingProxies1.SetInterval(1000,5000);
-            proxyList1.DataSource = checkingProxies1.NewProxy;
+            checkingProxies1.SetInterval(1000,100);
+            proxyList1.DataSource = checkingProxies1.Working;
             // checkingProxies1.Check(new Proxy(){Ip= "195.221.251.200", Port="8080", Protocol = "http"});
         }
 

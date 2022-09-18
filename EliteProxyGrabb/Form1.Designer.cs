@@ -36,13 +36,14 @@ namespace EliteProxyGrabb
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.settings1 = new EliteProxyGrabb.Settings();
             this.proxyCompliteList1 = new EliteProxyGrabb.ProxyCompliteList();
             this.proxyList1 = new EliteProxyGrabb.ProxyList();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.checkingProxies1 = new EliteProxyGrabb.LanFunc.CheckingProxies();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -127,6 +128,7 @@ namespace EliteProxyGrabb
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.settings1);
             this.panel2.Controls.Add(this.proxyCompliteList1);
             this.panel2.Controls.Add(this.proxyList1);
@@ -135,30 +137,6 @@ namespace EliteProxyGrabb
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(698, 391);
             this.panel2.TabIndex = 3;
-            // 
-            // settings1
-            // 
-            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.settings1.Location = new System.Drawing.Point(0, 0);
-            this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(698, 391);
-            this.settings1.TabIndex = 2;
-            // 
-            // proxyCompliteList1
-            // 
-            this.proxyCompliteList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.proxyCompliteList1.Location = new System.Drawing.Point(0, 0);
-            this.proxyCompliteList1.Name = "proxyCompliteList1";
-            this.proxyCompliteList1.Size = new System.Drawing.Size(698, 55);
-            this.proxyCompliteList1.TabIndex = 1;
-            // 
-            // proxyList1
-            // 
-            this.proxyList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.proxyList1.Location = new System.Drawing.Point(0, 0);
-            this.proxyList1.Name = "proxyList1";
-            this.proxyList1.Size = new System.Drawing.Size(698, 50);
-            this.proxyList1.TabIndex = 0;
             // 
             // panel3
             // 
@@ -169,17 +147,6 @@ namespace EliteProxyGrabb
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(698, 23);
             this.panel3.TabIndex = 4;
-            // 
-            // checkingProxies1
-            // 
-            this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
-            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
-            this.checkingProxies1.Name = "checkingProxies1";
-            this.checkingProxies1.ProxyCompliteList = null;
-            this.checkingProxies1.ProxyList = null;
-            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
-            this.checkingProxies1.TabIndex = 1;
             // 
             // label1
             // 
@@ -207,6 +174,50 @@ namespace EliteProxyGrabb
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.Community);
+            // 
+            // settings1
+            // 
+            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.settings1.Location = new System.Drawing.Point(0, 0);
+            this.settings1.Name = "settings1";
+            this.settings1.Size = new System.Drawing.Size(698, 391);
+            this.settings1.TabIndex = 2;
+            // 
+            // proxyCompliteList1
+            // 
+            this.proxyCompliteList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.proxyCompliteList1.Location = new System.Drawing.Point(0, 0);
+            this.proxyCompliteList1.Name = "proxyCompliteList1";
+            this.proxyCompliteList1.Size = new System.Drawing.Size(698, 55);
+            this.proxyCompliteList1.TabIndex = 1;
+            // 
+            // proxyList1
+            // 
+            this.proxyList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.proxyList1.Location = new System.Drawing.Point(0, 0);
+            this.proxyList1.Name = "proxyList1";
+            this.proxyList1.Size = new System.Drawing.Size(698, 50);
+            this.proxyList1.TabIndex = 0;
+            // 
+            // checkingProxies1
+            // 
+            this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
+            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
+            this.checkingProxies1.Name = "checkingProxies1";
+            this.checkingProxies1.ProxyCompliteList = null;
+            this.checkingProxies1.ProxyList = null;
+            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
+            this.checkingProxies1.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(19, 32);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(185, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Сохранить не проверенные";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -246,6 +257,7 @@ namespace EliteProxyGrabb
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private LanFunc.CheckingProxies checkingProxies1;
+        private System.Windows.Forms.Button button4;
     }
 }
 

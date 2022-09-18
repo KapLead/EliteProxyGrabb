@@ -62,43 +62,5 @@ namespace EliteProxyGrabb
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            foreach (Proxy p in checkingProxies1.NewProxy)
-            {
-                File.AppendAllText("newproxy.txt",
-                    $"{(c11.Checked?p.Ip:"")}\t" +
-                    $"{(c12.Checked?":"+p.Port:"")}\t" +
-                    $"{(c13.Checked ? "\t" + p.Protocol : "")}\t" +
-                    $"{(c14.Checked ? "\t" + p.Country : "")}\t" +
-                    $"{(c15.Checked ? "\t" + p.Level : "")}\t");
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            foreach (Proxy p in checkingProxies1.Working)
-            {
-                File.AppendAllText("okproxy.txt",
-                    $"{(c21.Checked ? p.Ip : "")}\t" +
-                    $"{(c22.Checked ? ":" + p.Port : "")}\t" +
-                    $"{(c23.Checked ? "\t" + p.Protocol : "")}\t" +
-                    $"{(c24.Checked ? "\t" + p.Country : "")}\t" +
-                    $"{(c25.Checked ? "\t" + p.Level : "")}\t");
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            foreach (Proxy p in proxyCompliteList1.Items)
-            {
-                File.AppendAllText("compliteproxy.txt",
-                    $"{(c21.Checked ? p.Ip : "")}\t" +
-                    $"{(c22.Checked ? ":" + p.Port : "")}\t" +
-                    $"{(c23.Checked ? "\t" + p.Protocol : "")}\t" +
-                    $"{(c24.Checked ? "\t" + p.Country : "")}\t" +
-                    $"{(c25.Checked ? "\t" + p.Level : "")}\t");
-            }
-        }
     }
 }

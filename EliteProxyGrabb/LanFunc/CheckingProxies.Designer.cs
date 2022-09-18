@@ -40,11 +40,13 @@ namespace EliteProxyGrabb.LanFunc
             // 
             // timer
             // 
+            this.timer.Enabled = true;
             this.timer.Interval = 900;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // timerCheckActuality
             // 
+            this.timerCheckActuality.Enabled = true;
             this.timerCheckActuality.Interval = 3500;
             this.timerCheckActuality.Tick += new System.EventHandler(this.timerCheckActuality_Tick);
             // 

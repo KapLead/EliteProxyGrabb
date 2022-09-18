@@ -14,7 +14,8 @@ namespace EliteProxyGrabb
             Load+= OnLoad;
             Shown+= OnShown;
             checkingProxies1.SetInterval(1000,5000);
-            checkingProxies1.Check(new Proxy(){Ip= "195.221.251.200", Port="8080", Protocol = "http"});
+            proxyList1.DataSource = checkingProxies1.NewProxy;
+            // checkingProxies1.Check(new Proxy(){Ip= "195.221.251.200", Port="8080", Protocol = "http"});
         }
 
         private void OnShown(object sender, EventArgs e)
@@ -53,6 +54,11 @@ namespace EliteProxyGrabb
         private void Community(object sender, EventArgs e)
         {
             Process.Start("https://t.me/sharphelp");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

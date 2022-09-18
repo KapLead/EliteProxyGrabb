@@ -7,6 +7,16 @@ namespace EliteProxyGrabb
     public partial class ProxyList : UserControl
     {
         public ThreadBindingList<Proxy> Items { get; private set; }
+        public object DataSource
+        {
+            get => listBox1.DataSource;
+            set
+            {
+                listBox1.DataSource = null;
+                listBox1.DataSource = value;
+            }
+        }
+
         public ProxyList()
         {
             InitializeComponent();
@@ -48,7 +58,7 @@ namespace EliteProxyGrabb
                 new RectangleF(llevel.Left, e.Bounds.Y, llevel.Width, e.Bounds.Height), centr);
             e.Graphics.DrawString(p.HostName, listBox1.Font, new SolidBrush(e.ForeColor),
                 new RectangleF(lhostname.Left, e.Bounds.Y, lhostname.Width, e.Bounds.Height), left);
-            e.Graphics.DrawLine(Pens.DarkGray,0,e.Bounds.Bottom,e.Bounds.Width,e.Bounds.Height);
+            //e.Graphics.DrawLine(Pens.DarkGray,0,e.Bounds.Bottom,e.Bounds.Width,e.Bounds.Height);
         }
     }
 }

@@ -56,6 +56,7 @@ namespace EliteProxyGrabb
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel11
@@ -339,11 +340,25 @@ namespace EliteProxyGrabb
             this.label2.Text = "Сохраняемые параменты                           IP            Порт       Протокол" +
     "    Страна     Уровень      ";
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.OldLace;
+            this.button1.Location = new System.Drawing.Point(499, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 88);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Очистить дубли";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel9);
@@ -372,7 +387,7 @@ namespace EliteProxyGrabb
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
             this.Name = "Settings";
-            this.Size = new System.Drawing.Size(562, 379);
+            this.Size = new System.Drawing.Size(683, 379);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,5 +422,6 @@ namespace EliteProxyGrabb
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -31,20 +31,20 @@ namespace EliteProxyGrabb
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pAccept = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.settings1 = new EliteProxyGrabb.Settings();
-            this.checkingProxies1 = new EliteProxyGrabb.LanFunc.CheckingProxies();
-            this.proxyCompliteList1 = new EliteProxyGrabb.ProxyCompliteList();
-            this.proxyList1 = new EliteProxyGrabb.ProxyList();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pAccept = new System.Windows.Forms.Panel();
             this.lCount = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.settings1 = new EliteProxyGrabb.Settings();
+            this.checkingProxies1 = new EliteProxyGrabb.LanFunc.CheckingProxies();
+            this.proxyCompliteList1 = new EliteProxyGrabb.ProxyCompliteList();
+            this.proxyList1 = new EliteProxyGrabb.ProxyList();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -63,8 +63,19 @@ namespace EliteProxyGrabb
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(698, 30);
+            this.panel1.Size = new System.Drawing.Size(902, 30);
             this.panel1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label2.Image = global::EliteProxyGrabb.Properties.Resources.bl37_271;
+            this.label2.Location = new System.Drawing.Point(423, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "0";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pAccept
             // 
@@ -74,112 +85,13 @@ namespace EliteProxyGrabb
             this.pAccept.Size = new System.Drawing.Size(241, 4);
             this.pAccept.TabIndex = 4;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.settings1);
-            this.panel2.Controls.Add(this.proxyCompliteList1);
-            this.panel2.Controls.Add(this.proxyList1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 33);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(698, 391);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.checkingProxies1);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 424);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(698, 23);
-            this.panel3.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label1.Location = new System.Drawing.Point(644, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "KapLead";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.Community);
-            // 
-            // settings1
-            // 
-            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.settings1.Checking = this.checkingProxies1;
-            this.settings1.Checking2 = this.proxyCompliteList1;
-            this.settings1.Location = new System.Drawing.Point(11, 64);
-            this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(684, 330);
-            this.settings1.TabIndex = 2;
-            // 
-            // checkingProxies1
-            // 
-            this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
-            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
-            this.checkingProxies1.Name = "checkingProxies1";
-            this.checkingProxies1.ProxyCompliteList = null;
-            this.checkingProxies1.ProxyList = null;
-            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
-            this.checkingProxies1.TabIndex = 1;
-            // 
-            // proxyCompliteList1
-            // 
-            this.proxyCompliteList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.proxyCompliteList1.Location = new System.Drawing.Point(0, 3);
-            this.proxyCompliteList1.Name = "proxyCompliteList1";
-            this.proxyCompliteList1.Size = new System.Drawing.Size(698, 55);
-            this.proxyCompliteList1.TabIndex = 1;
-            // 
-            // proxyList1
-            // 
-            this.proxyList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.proxyList1.Location = new System.Drawing.Point(0, 3);
-            this.proxyList1.Name = "proxyList1";
-            this.proxyList1.Size = new System.Drawing.Size(698, 50);
-            this.proxyList1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::EliteProxyGrabb.Properties.Resources.tg3;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(619, 420);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.Community);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Image = global::EliteProxyGrabb.Properties.Resources.bl37_271;
-            this.label2.Location = new System.Drawing.Point(426, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 28);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "0";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lCount
             // 
             this.lCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lCount.Image = global::EliteProxyGrabb.Properties.Resources.rd37_27;
-            this.lCount.Location = new System.Drawing.Point(199, 4);
+            this.lCount.Location = new System.Drawing.Point(196, 6);
             this.lCount.Name = "lCount";
-            this.lCount.Size = new System.Drawing.Size(37, 28);
+            this.lCount.Size = new System.Drawing.Size(37, 24);
             this.lCount.TabIndex = 5;
             this.lCount.Text = "0";
             this.lCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,12 +151,98 @@ namespace EliteProxyGrabb
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.SelectTab);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.settings1);
+            this.panel2.Controls.Add(this.proxyCompliteList1);
+            this.panel2.Controls.Add(this.proxyList1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 33);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(902, 391);
+            this.panel2.TabIndex = 3;
+            // 
+            // settings1
+            // 
+            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.settings1.Checking = this.checkingProxies1;
+            this.settings1.Checking2 = this.proxyCompliteList1;
+            this.settings1.Location = new System.Drawing.Point(11, 64);
+            this.settings1.Name = "settings1";
+            this.settings1.Size = new System.Drawing.Size(684, 330);
+            this.settings1.TabIndex = 2;
+            // 
+            // checkingProxies1
+            // 
+            this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
+            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
+            this.checkingProxies1.Name = "checkingProxies1";
+            this.checkingProxies1.ProxyCompliteList = null;
+            this.checkingProxies1.ProxyList = null;
+            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
+            this.checkingProxies1.TabIndex = 1;
+            // 
+            // proxyCompliteList1
+            // 
+            this.proxyCompliteList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.proxyCompliteList1.Location = new System.Drawing.Point(0, 3);
+            this.proxyCompliteList1.Name = "proxyCompliteList1";
+            this.proxyCompliteList1.Size = new System.Drawing.Size(698, 55);
+            this.proxyCompliteList1.TabIndex = 1;
+            // 
+            // proxyList1
+            // 
+            this.proxyList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.proxyList1.Location = new System.Drawing.Point(0, 3);
+            this.proxyList1.Name = "proxyList1";
+            this.proxyList1.Size = new System.Drawing.Size(698, 50);
+            this.proxyList1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.checkingProxies1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(3, 424);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(902, 23);
+            this.panel3.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label1.Location = new System.Drawing.Point(848, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "KapLead";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Click += new System.EventHandler(this.Community);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::EliteProxyGrabb.Properties.Resources.tg;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(823, 424);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 24);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.Community);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.ClientSize = new System.Drawing.Size(704, 450);
+            this.ClientSize = new System.Drawing.Size(908, 450);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
@@ -254,6 +252,7 @@ namespace EliteProxyGrabb
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Text = "ELITE PROXY GRABBER ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

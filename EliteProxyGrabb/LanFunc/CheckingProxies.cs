@@ -27,6 +27,7 @@ namespace EliteProxyGrabb.LanFunc
         }
 
 
+
         public void SetInterval(int refinding = 900, int checkingnewproxy = 350)
         {
             timer.Interval = refinding;
@@ -57,8 +58,8 @@ namespace EliteProxyGrabb.LanFunc
             });
             foreach (Proxy proxy in newproxylist)
             {
-                if (NewProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) == null 
-                    && BadProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port)==null)
+                if (NewProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) == null
+                    && BadProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) == null)
                 {
                     NewProxy.Add(proxy);
                     if (lnew.InvokeRequired) lnew.Invoke(a);
@@ -66,18 +67,16 @@ namespace EliteProxyGrabb.LanFunc
                 }
             }
         }
-
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
         }
-
         private async void timer_Tick(object sender, System.EventArgs e)
         {
             if (Finders.Count == 0 || IsChecking) return;
             IsChecking = true;
 
-            var finders = Finders.Where(f => f.NeedCheck);
+            var finders = Finders.Where(f => f.NeedCheck).ToList();
             foreach (IFinder finder in finders)
             {
                 var result = await finder.Grab();
@@ -89,21 +88,21 @@ namespace EliteProxyGrabb.LanFunc
             }
             IsChecking = false;
         }
-
         private List<Proxy> DropFromCopy(Proxy[] result)
         {
             List<Proxy> ret = new List<Proxy>();
             foreach (Proxy proxy in ret)
             {
-                if(proxy.Protocol==null) continue;
+                if (proxy.Protocol == null) continue;
                 if (ProxyList.Contains(proxy)) continue;
                 if (ProxyCompliteList.Contains(proxy)) continue;
+                if (NewProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) != null ||
+                   BadProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) != null ||
+                   Working.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) != null) continue;
                 ret.Add(proxy);
             }
             return ret;
         }
-
-
         private async void timerCheckActuality_Tick(object sender, System.EventArgs e)
         {
             if (NewProxy.Count == 0) return;
@@ -117,7 +116,7 @@ namespace EliteProxyGrabb.LanFunc
         private bool isTest = false;
         public async Task Check(Proxy p)
         {
-            if (p == null || isTest || p.Protocol==null){isTest = false;return;}
+            if (p == null || isTest || p.Protocol == null) { isTest = false; return; }
             isTest = true;
             string protool = p.Protocol?.ToLower()?.Trim();
             try
@@ -129,23 +128,23 @@ namespace EliteProxyGrabb.LanFunc
                     {
                         Proxy = new WebProxy
                         {
-                            Address = new Uri(p.Protocol+"://"+p.Ip + ":" + p.Port)
+                            Address = new Uri(p.Protocol + "://" + p.Ip + ":" + p.Port)
                         }
                     };
                     var html = await wc.DownloadStringTaskAsync("https://www.babaip.com/");
                     http.LoadHtml(html);
                     var txt = http.DocumentNode.SelectNodes("//b").First().InnerHtml
-                        .Replace("<br>","\n")
-                        .Replace("</br>","\n")
-                        .Replace("&#69;","E")
+                        .Replace("<br>", "\n")
+                        .Replace("</br>", "\n")
+                        .Replace("&#69;", "E")
                         .Split('\n')
-                        .Where(s=>!string.IsNullOrWhiteSpace(s))
-                        .Select(s=>s.Contains("<")?s.Substring(0,s.IndexOf("<", StringComparison.Ordinal)):s)
+                        .Where(s => !string.IsNullOrWhiteSpace(s))
+                        .Select(s => s.Contains("<") ? s.Substring(0, s.IndexOf("<", StringComparison.Ordinal)) : s)
                         .ToArray();
                     p.Country = txt?.FirstOrDefault(s => s.StartsWith("Country Code"))?.Split(':')?.Last()?.Trim();
                     p.HostName = txt?.FirstOrDefault(s => s.StartsWith("Hostname"))?.Split(':')?.Last()?.Trim();
                     p.LastCheckData = DateTime.Now.ToString("u");
-                    p.Level= txt?.FirstOrDefault(s => s.StartsWith("Proxy Anonymity Level"))?.Split(':')?.Last()?.Trim();
+                    p.Level = txt?.FirstOrDefault(s => s.StartsWith("Proxy Anonymity Level"))?.Split(':')?.Last()?.Trim();
                 }
                 else
                 if (protool.StartsWith("socks"))
@@ -161,15 +160,15 @@ namespace EliteProxyGrabb.LanFunc
                     ;
                 }
                 Working.Add(p);
+                lall.Invoke(new Action((() => lall.Text = (int.Parse(lall.Text) + 1).ToString())));
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 BadProxy.Add(p);
             }
-            Checked?.Invoke(this,null);
-            lall.Invoke(new Action((() => lall.Text = (int.Parse(lall.Text) + 1).ToString())));
             isTest = false;
+            Checked?.Invoke(this, null);
         }
     }
 

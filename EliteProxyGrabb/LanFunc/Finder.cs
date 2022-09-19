@@ -8,7 +8,7 @@ namespace EliteProxyGrabb.LanFunc
     {
         public DateTime LastCheck { get; set; } = DateTime.MinValue;
         public int NextCheck { get; set; } = 60;
-        public bool NeedCheck => LastCheck.AddMinutes((double)NextCheck) < DateTime.Now;
+        public bool NeedCheck => LastCheck.AddSeconds((double)NextCheck) < DateTime.Now;
         public virtual async Task<Proxy[]> Grab()
         {
             await Task.Delay(1);

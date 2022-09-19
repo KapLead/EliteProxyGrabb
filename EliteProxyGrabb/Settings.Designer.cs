@@ -296,6 +296,7 @@ namespace EliteProxyGrabb
             this.button6.Text = "Сохранить выданные";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -309,6 +310,7 @@ namespace EliteProxyGrabb
             this.button5.Text = "Сохранить проверенные";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -322,6 +324,7 @@ namespace EliteProxyGrabb
             this.button4.Text = "Сохранить не проверенные";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label2
             // 

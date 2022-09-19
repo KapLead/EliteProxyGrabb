@@ -63,6 +63,26 @@ namespace EliteProxyGrabb.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bl37_27 {
+            get {
+                object obj = ResourceManager.GetObject("bl37-27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bl37_271 {
+            get {
+                object obj = ResourceManager.GetObject("bl37-271", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_box {
             get {
                 object obj = ResourceManager.GetObject("check_box", resourceCulture);
@@ -76,6 +96,26 @@ namespace EliteProxyGrabb.Properties {
         internal static System.Drawing.Bitmap check_box_mix {
             get {
                 object obj = ResourceManager.GetObject("check_box_mix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gr37_27 {
+            get {
+                object obj = ResourceManager.GetObject("gr37-27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rd37_27 {
+            get {
+                object obj = ResourceManager.GetObject("rd37-27", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -6,8 +6,8 @@ namespace EliteProxyGrabb.LanFunc
 {
     public class Finder : IFinder
     {
-        public DateTime LastCheck { get; } = DateTime.MinValue;
-        public int NextCheck { get; } = 60;
+        public DateTime LastCheck { get; set; } = DateTime.MinValue;
+        public int NextCheck { get; set; } = 60;
         public bool NeedCheck => LastCheck.AddMinutes((double)NextCheck) < DateTime.Now;
         public virtual async Task<Proxy[]> Grab()
         {

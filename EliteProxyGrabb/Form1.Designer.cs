@@ -32,17 +32,19 @@ namespace EliteProxyGrabb
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pAccept = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.settings1 = new EliteProxyGrabb.Settings();
+            this.checkingProxies1 = new EliteProxyGrabb.LanFunc.CheckingProxies();
             this.proxyCompliteList1 = new EliteProxyGrabb.ProxyCompliteList();
             this.proxyList1 = new EliteProxyGrabb.ProxyList();
-            this.checkingProxies1 = new EliteProxyGrabb.LanFunc.CheckingProxies();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lCount = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -51,7 +53,9 @@ namespace EliteProxyGrabb
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pAccept);
+            this.panel1.Controls.Add(this.lCount);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -67,63 +71,8 @@ namespace EliteProxyGrabb
             this.pAccept.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.pAccept.Location = new System.Drawing.Point(0, 0);
             this.pAccept.Name = "pAccept";
-            this.pAccept.Size = new System.Drawing.Size(206, 4);
+            this.pAccept.Size = new System.Drawing.Size(241, 4);
             this.pAccept.TabIndex = 4;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::EliteProxyGrabb.Properties.Resources.setting_tools;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(393, 0);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.button3.Size = new System.Drawing.Size(120, 30);
-            this.button3.TabIndex = 3;
-            this.button3.Tag = "2";
-            this.button3.Text = "НАСТРОЙКИ";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.SelectTab);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::EliteProxyGrabb.Properties.Resources.check_box_mix;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(204, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 30);
-            this.button2.TabIndex = 2;
-            this.button2.Tag = "1";
-            this.button2.Text = "ИСПОЛЬЗОВАННЫЕ ПРОКСИ";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.SelectTab);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::EliteProxyGrabb.Properties.Resources.check_box;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Tag = "0";
-            this.button1.Text = "СПИСОК ДОСТУПНЫХ ПРОКСИ";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.SelectTab);
             // 
             // panel2
             // 
@@ -148,9 +97,9 @@ namespace EliteProxyGrabb
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.label1.Location = new System.Drawing.Point(644, 0);
             this.label1.Name = "label1";
@@ -160,26 +109,26 @@ namespace EliteProxyGrabb
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Click += new System.EventHandler(this.Community);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::EliteProxyGrabb.Properties.Resources.tg3;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(619, 420);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.Community);
-            // 
             // settings1
             // 
             this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.settings1.Checking = this.checkingProxies1;
+            this.settings1.Checking2 = this.proxyCompliteList1;
             this.settings1.Location = new System.Drawing.Point(11, 64);
             this.settings1.Name = "settings1";
             this.settings1.Size = new System.Drawing.Size(684, 330);
             this.settings1.TabIndex = 2;
+            // 
+            // checkingProxies1
+            // 
+            this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
+            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
+            this.checkingProxies1.Name = "checkingProxies1";
+            this.checkingProxies1.ProxyCompliteList = null;
+            this.checkingProxies1.ProxyList = null;
+            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
+            this.checkingProxies1.TabIndex = 1;
             // 
             // proxyCompliteList1
             // 
@@ -197,16 +146,98 @@ namespace EliteProxyGrabb
             this.proxyList1.Size = new System.Drawing.Size(698, 50);
             this.proxyList1.TabIndex = 0;
             // 
-            // checkingProxies1
+            // pictureBox1
             // 
-            this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
-            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
-            this.checkingProxies1.Name = "checkingProxies1";
-            this.checkingProxies1.ProxyCompliteList = null;
-            this.checkingProxies1.ProxyList = null;
-            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
-            this.checkingProxies1.TabIndex = 1;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::EliteProxyGrabb.Properties.Resources.tg3;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(619, 420);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.Community);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Image = global::EliteProxyGrabb.Properties.Resources.bl37_271;
+            this.label2.Location = new System.Drawing.Point(426, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 28);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "0";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lCount
+            // 
+            this.lCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lCount.Image = global::EliteProxyGrabb.Properties.Resources.rd37_27;
+            this.lCount.Location = new System.Drawing.Point(199, 4);
+            this.lCount.Name = "lCount";
+            this.lCount.Size = new System.Drawing.Size(37, 28);
+            this.lCount.TabIndex = 5;
+            this.lCount.Text = "0";
+            this.lCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::EliteProxyGrabb.Properties.Resources.setting_tools;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(468, 0);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.button3.Size = new System.Drawing.Size(120, 30);
+            this.button3.TabIndex = 3;
+            this.button3.Tag = "2";
+            this.button3.Text = "НАСТРОЙКИ";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.SelectTab);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::EliteProxyGrabb.Properties.Resources.check_box_mix;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(239, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(229, 30);
+            this.button2.TabIndex = 2;
+            this.button2.Tag = "1";
+            this.button2.Text = "      ИСПОЛЬЗОВАННЫЕ ПРОКСИ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.SelectTab);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::EliteProxyGrabb.Properties.Resources.check_box;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(239, 30);
+            this.button1.TabIndex = 1;
+            this.button1.Tag = "0";
+            this.button1.Text = "      СПИСОК ДОСТУПНЫХ ПРОКСИ";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.SelectTab);
             // 
             // Form1
             // 
@@ -246,6 +277,8 @@ namespace EliteProxyGrabb
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private LanFunc.CheckingProxies checkingProxies1;
+        private System.Windows.Forms.Label lCount;
+        private System.Windows.Forms.Label label2;
     }
 }
 

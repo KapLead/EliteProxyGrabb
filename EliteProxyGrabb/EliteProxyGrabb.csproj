@@ -67,7 +67,9 @@
     <Compile Include="LanFunc\ExAgilityPack.cs" />
     <Compile Include="LanFunc\Finder.cs" />
     <Compile Include="LanFunc\Freeproxyupdate.cs" />
+    <Compile Include="LanFunc\HidemyName.cs" />
     <Compile Include="LanFunc\IFinder.cs" />
+    <Compile Include="LanFunc\SpysOne.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxy.cs" />
@@ -132,6 +134,10 @@
   <ItemGroup>
     <Content Include="5.ico" />
     <Content Include="BlueA.ico" />
+    <None Include="Resources\bl37-271.png" />
+    <None Include="Resources\rd37-27.png" />
+    <None Include="Resources\gr37-27.png" />
+    <None Include="Resources\bl37-27.png" />
     <None Include="Resources\tg3.png" />
     <None Include="Resources\tg.png" />
     <None Include="Resources\check_box_mix.png" />

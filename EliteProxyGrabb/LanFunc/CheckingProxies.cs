@@ -11,11 +11,13 @@ namespace EliteProxyGrabb.LanFunc
 {
     public partial class CheckingProxies : UserControl
     {
+        public event EventHandler Checked;
         private List<IFinder> Finders = new List<IFinder>();
         public ProxyList ProxyList { get; set; }
         public ProxyCompliteList ProxyCompliteList { get; set; }
         public bool IsChecking { get; private set; }
         public ThreadBindingList<Proxy> NewProxy = new ThreadBindingList<Proxy>();
+        public ThreadBindingList<Proxy> BadProxy = new ThreadBindingList<Proxy>();
         public ThreadBindingList<Proxy> Working = new ThreadBindingList<Proxy>();
         public int CountNewProxies { get; private set; } = 0;
         HtmlWeb web = new HtmlWeb();
@@ -55,7 +57,8 @@ namespace EliteProxyGrabb.LanFunc
             });
             foreach (Proxy proxy in newproxylist)
             {
-                if (NewProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) == null)
+                if (NewProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port) == null 
+                    && BadProxy.FirstOrDefault(p => p.Ip == proxy.Ip && p.Port == proxy.Port)==null)
                 {
                     NewProxy.Add(proxy);
                     if (lnew.InvokeRequired) lnew.Invoke(a);
@@ -82,6 +85,7 @@ namespace EliteProxyGrabb.LanFunc
                 foreach (Proxy proxy in newproxy)
                     NewProxy.Add(proxy);
                 CountNewProxies += newproxy.Count;
+                finder.LastCheck = DateTime.Now;
             }
             IsChecking = false;
         }
@@ -107,12 +111,13 @@ namespace EliteProxyGrabb.LanFunc
             Check(NewProxy[0]);
             // удалить из списка новых
             NewProxy.RemoveAt(0);
+            lnew.Text = NewProxy.Count.ToString();
         }
 
         private bool isTest = false;
         public async Task Check(Proxy p)
         {
-            if (p == null || isTest || p.Protocol==null) return;
+            if (p == null || isTest || p.Protocol==null){isTest = false;return;}
             isTest = true;
             string protool = p.Protocol?.ToLower()?.Trim();
             try
@@ -160,7 +165,10 @@ namespace EliteProxyGrabb.LanFunc
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                BadProxy.Add(p);
             }
+            Checked?.Invoke(this,null);
+            lall.Invoke(new Action((() => lall.Text = (int.Parse(lall.Text) + 1).ToString())));
             isTest = false;
         }
     }

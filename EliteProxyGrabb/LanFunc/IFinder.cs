@@ -10,10 +10,10 @@ namespace EliteProxyGrabb.LanFunc
     public interface IFinder
     {
         /// <summary> Дата последнего сканирования </summary>
-        DateTime LastCheck { get; }
+        DateTime LastCheck { get; set; }
 
         /// <summary> Время следующего сканирования </summary>
-        int NextCheck { get; }
+        int NextCheck { get; set; }
 
         /// <summary> Надо ли произвести сканирование </summary>
         bool NeedCheck { get; }

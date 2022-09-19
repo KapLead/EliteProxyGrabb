@@ -1,9 +1,8 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 
 namespace EliteProxyGrabb.LanFunc
 {
@@ -38,22 +37,28 @@ namespace EliteProxyGrabb.LanFunc
             };
             List<Proxy> ret = new List<Proxy>();
             List<Proxy> tmp = new List<Proxy>();
-            string[] types = new []{"/anonymous","/elite"};
+            string[] types = new[] { "/anonymous", "/elite" };
             var web = new HtmlWeb();
-           foreach (string type in types)
+            foreach (string type in types)
             {
                 foreach (string url in Urls)
                 {
-                    var doc = await web.LoadFromWebAsync("https://freeproxyupdate.com/"+url +type);
-                    var tr = doc.GetElementsByTagName("tr").Skip(7).ToList();
-                    foreach (HtmlNode node in tr)
+                    try
                     {
-                        var dat = ToProxy(node.InnerText.Split(new[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries).ToArray());
-                        if(dat!=null)
-                            tmp.Add(dat);
+                        var doc = await web.LoadFromWebAsync("https://freeproxyupdate.com/" + url + type);
+                        var tr = doc.GetElementsByTagName("tr").Skip(7).ToList();
+                        foreach (HtmlNode node in tr)
+                        {
+                            var dat = ToProxy(node.InnerText.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToArray());
+                            if (dat != null)
+                                tmp.Add(dat);
+                        }
+                        OnFinding(tmp);
+                        await Task.Delay(2024);
                     }
-                    OnFinding(tmp);
-                    await Task.Delay(2024);
+                    catch
+                    {
+                    }
                 }
                 ret.AddRange(tmp);
             }

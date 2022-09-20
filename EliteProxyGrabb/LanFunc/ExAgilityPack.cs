@@ -9,6 +9,7 @@ namespace EliteProxyGrabb.LanFunc
         public static IEnumerable<HtmlNode> GetElementsByName(this HtmlDocument parent, string name)
         {
             return parent.DocumentNode.Descendants().Where(node => node.Name == name);
+
         }
 
         public static IEnumerable<HtmlNode> GetElementsByTagName(this HtmlDocument parent, string name)

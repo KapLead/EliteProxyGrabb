@@ -7,6 +7,7 @@ namespace EliteProxyGrabb.LanFunc
 {
     public class AdvancedName : Finder
     {
+        public override string Host => "https://advanced.name/";
         public override async Task<Proxy[]> Grab()
         {
             List<Proxy> ret = new List<Proxy>();
@@ -20,13 +21,14 @@ namespace EliteProxyGrabb.LanFunc
             foreach (string s in variable)
                 for (int i = 1; i < 12; i++)
                 {
-                    var doc = web.LoadFromBrowser($"https://advanced.name/ru/freeproxy?type={s}&page={i}");
+                    var doc = web.LoadFromBrowser($"{Host}ru/freeproxy?type={s}&page={i}");
                     var tr = doc.GetElementsByTagName("tr").Skip(1).ToList();
                     foreach (HtmlNode node in tr)
                     {
                         try
                         {
-                            if (node.ChildNodes.Count < 9 && !char.IsDigit(node.ChildNodes[3].InnerText[0])) continue;
+                            if (node.ChildNodes.Count < 9 || !char.IsDigit(node.ChildNodes[3].InnerText[0]) || node.ChildNodes[3].InnerText.Count(c=>c=='.')!=3)
+                                continue;
                             var p = new Proxy
                             {
 
@@ -34,7 +36,8 @@ namespace EliteProxyGrabb.LanFunc
                                 Port = node.ChildNodes[5].InnerText,
                                 Protocol = node.ChildNodes[7].InnerText.Split(' ').First(),
                             };
-                            ret.Add(p);  
+                            if (p?.Ip?.Count(c => c == '.') == 3)
+                                ret.Add(p);  
                         }
                         catch { }
                     }

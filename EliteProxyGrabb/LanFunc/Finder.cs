@@ -6,6 +6,7 @@ namespace EliteProxyGrabb.LanFunc
 {
     public class Finder : IFinder
     {
+        public virtual string Host { get; } 
         public DateTime LastCheck { get; set; } = DateTime.MinValue;
         public int NextCheck { get; set; } = 60;
         public bool NeedCheck => LastCheck.AddSeconds((double)NextCheck) < DateTime.Now;

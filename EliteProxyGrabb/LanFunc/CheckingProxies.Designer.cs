@@ -36,6 +36,8 @@ namespace EliteProxyGrabb.LanFunc
             this.lnew = new System.Windows.Forms.Label();
             this.lall = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lhost = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer
@@ -94,15 +96,39 @@ namespace EliteProxyGrabb.LanFunc
             this.label4.Text = "Проверено всего";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(336, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 22);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "щас ищем";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lhost
+            // 
+            this.lhost.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lhost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lhost.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lhost.Location = new System.Drawing.Point(402, 0);
+            this.lhost.Name = "lhost";
+            this.lhost.Size = new System.Drawing.Size(230, 22);
+            this.lhost.TabIndex = 5;
+            this.lhost.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // CheckingProxies
             // 
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.lhost);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lall);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lnew);
             this.Controls.Add(this.label1);
             this.Name = "CheckingProxies";
-            this.Size = new System.Drawing.Size(365, 22);
+            this.Size = new System.Drawing.Size(632, 22);
             this.ResumeLayout(false);
 
         }
@@ -115,5 +141,7 @@ namespace EliteProxyGrabb.LanFunc
         private System.Windows.Forms.Label lnew;
         private System.Windows.Forms.Label lall;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lhost;
     }
 }

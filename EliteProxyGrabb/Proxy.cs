@@ -9,7 +9,7 @@
         public string HostName;
         public string Protocol;
         public string LastCheckData;
-
+        public string Number="0";
         public override string ToString() => $"{Ip}:{Port} / {Protocol} ({Country}) {Level} {HostName}".Trim();
     }
 }

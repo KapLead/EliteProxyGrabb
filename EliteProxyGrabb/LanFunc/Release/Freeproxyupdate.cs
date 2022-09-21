@@ -8,6 +8,7 @@ namespace EliteProxyGrabb.LanFunc
 {
     public class FreeProxyUpdate : Finder
     {
+        public override string Host => "https://freeproxyupdate.com/";
 
         public FreeProxyUpdate()
         {
@@ -45,12 +46,12 @@ namespace EliteProxyGrabb.LanFunc
                 {
                     try
                     {
-                        var doc = await web.LoadFromWebAsync("https://freeproxyupdate.com/" + url + type);
+                        var doc = await web.LoadFromWebAsync(Host+ url + type);
                         var tr = doc.GetElementsByTagName("tr").Skip(7).ToList();
                         foreach (HtmlNode node in tr)
                         {
                             var dat = ToProxy(node.InnerText.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToArray());
-                            if (dat != null)
+                            if (dat != null && dat.Ip.Count(c=>c=='.')==3)
                                 tmp.Add(dat);
                         }
                         OnFinding(tmp);

@@ -7,10 +7,11 @@ namespace EliteProxyGrabb.LanFunc
 {
     public class HidemyName : Finder
     {
+        public override string Host => "https://hidemy.name/";
         public override async Task<Proxy[]> Grab()
         {
             var web = new HtmlWeb();
-            var doc = web.LoadFromBrowser("https://hidemy.name/ru/proxy-list/?type=hs&anon=4#list");
+            var doc = web.LoadFromBrowser($"{Host}ru/proxy-list/?type=hs&anon=4#list");
             var tr = doc.GetElementsByTagName("tr").Skip(1).ToList();
             List<Proxy> ret = new List<Proxy>();
             foreach (HtmlNode node in tr)
@@ -24,7 +25,8 @@ namespace EliteProxyGrabb.LanFunc
                         Port = node.ChildNodes[3].InnerText,
                         Protocol = node.ChildNodes[9].InnerText,
                     };
-                    ret.Add(p);
+                    if (p?.Ip?.Count(c => c == '.') == 3)
+                        ret.Add(p);
                 }
                 catch { }
             }

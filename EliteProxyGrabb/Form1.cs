@@ -36,8 +36,19 @@ namespace EliteProxyGrabb
             {
                 if (string.IsNullOrWhiteSpace(s)) continue;
                 string[] d = s.Split('\t');
-                if (d.Length != 7) continue;
-                try{checkingProxies1.Working.Add(new Proxy{Ip = d[0],Port = d[1], Protocol = d[2],Country = d[3], Level = d[4], HostName = d[5], LastCheckData = d[6]});}catch { }
+                if (d.Length<7 || d.Length>8) continue;
+                try
+                {
+                    checkingProxies1.Working.Add(new Proxy
+                    {
+                        Ip = d[0], Port = d[1], Protocol = d[2], Country = d[3], Level = d[4], HostName = d[5],
+                        LastCheckData = d[6], Number = d.Length == 7 ? "0" : d[7]
+                    });
+                }
+                catch
+                {
+
+                }
             }
             foreach (string s in f[2].Split('|'))
             {
@@ -56,7 +67,7 @@ namespace EliteProxyGrabb
                 f += $"{p.Ip}\t{p.Port}\t{p.Protocol}|";
             f += "\n";
             foreach (Proxy p in checkingProxies1.Working)
-                f += $"{p.Ip}\t{p.Port}\t{p.Protocol}\t{p.Country}\t{p.Level}\t{p.HostName}\t{p.LastCheckData}|";
+                f += $"{p.Ip}\t{p.Port}\t{p.Protocol}\t{p.Country}\t{p.Level}\t{p.HostName}\t{p.LastCheckData}\t{p.Number}|";
             f += "\n";
             foreach (Proxy p in checkingProxies1.BadProxy)
                 f += $"{p.Ip}\t{p.Port}|";

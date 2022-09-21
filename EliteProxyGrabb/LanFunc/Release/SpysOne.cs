@@ -7,15 +7,17 @@ namespace EliteProxyGrabb.LanFunc
 {
     public class SpysOne : Finder
     {
+        public override string Host => "https://spys.one/";
+
         public override async Task<Proxy[]> Grab()
         {
             var web = new HtmlWeb();
-            var doc = web.LoadFromBrowser("https://spys.one/proxies/");
+            var doc = web.LoadFromBrowser($"{Host}proxies/");
             var tr = doc.GetElementsByTagName("tr")?.Skip(7)?.ToList();
             List<Proxy> ret = new List<Proxy>();
             foreach (HtmlNode node in tr)
             {
-                if (node.ChildNodes.Count <3 || !char.IsDigit(node.ChildNodes[1].InnerText[0])) continue;
+                if (node.ChildNodes.Count < 3 || !char.IsDigit(node.ChildNodes[1].InnerText[0])) continue;
                 try
                 {
                     var p = new Proxy
@@ -24,7 +26,8 @@ namespace EliteProxyGrabb.LanFunc
                         Port = node.ChildNodes[1].InnerText.Split(':').Last(),
                         Protocol = node.ChildNodes[3].InnerText.Split(' ').First(),
                     };
-                    ret.Add(p);
+                    if (p?.Ip?.Count(c => c == '.') == 3)
+                        ret.Add(p);
                 }
                 catch
                 {

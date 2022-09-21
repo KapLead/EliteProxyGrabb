@@ -71,6 +71,7 @@ namespace EliteProxyGrabb.LanFunc
         {
             base.OnPaint(pe);
         }
+
         private async void timer_Tick(object sender, System.EventArgs e)
         {
             if (Finders.Count == 0 || IsChecking) return;
@@ -79,6 +80,7 @@ namespace EliteProxyGrabb.LanFunc
             var finders = Finders.Where(f => f.NeedCheck).ToList();
             foreach (IFinder finder in finders)
             {
+                lhost.Text = ((Finder)finder).Host;
                 var result = await finder.Grab();
                 var newproxy = DropFromCopy(result);
                 foreach (Proxy proxy in newproxy)
@@ -86,8 +88,21 @@ namespace EliteProxyGrabb.LanFunc
                 CountNewProxies += newproxy.Count;
                 finder.LastCheck = DateTime.Now;
             }
+
+            if (finders.Count == 0 && NewProxy.Count==0)
+            {
+                // новых сайтов для проверки нет, проверяем самые старые рабочие прокси
+                var min = DateTime.Parse(Working.Min(_p => _p.LastCheckData));
+                if (min < DateTime.Now.AddMinutes(-60))
+                {
+                    var pr= Working.FirstOrDefault(p => DateTime.Parse(p.LastCheckData) == min);
+                    Working.Remove(pr);
+                    NewProxy.Add(pr);
+                }
+            }
             IsChecking = false;
         }
+
         private List<Proxy> DropFromCopy(Proxy[] result)
         {
             List<Proxy> ret = new List<Proxy>();
@@ -103,6 +118,7 @@ namespace EliteProxyGrabb.LanFunc
             }
             return ret;
         }
+
         private async void timerCheckActuality_Tick(object sender, System.EventArgs e)
         {
             if (NewProxy.Count == 0) return;
@@ -126,10 +142,7 @@ namespace EliteProxyGrabb.LanFunc
                     var http = new HtmlAgilityPack.HtmlDocument();
                     MyWebClient wc = new MyWebClient
                     {
-                        Proxy = new WebProxy
-                        {
-                            Address = new Uri(p.Protocol + "://" + p.Ip + ":" + p.Port)
-                        }
+                        Proxy = new WebProxy{Address = new Uri(p.Protocol + "://" + p.Ip + ":" + p.Port)}
                     };
                     var html = await wc.DownloadStringTaskAsync("https://www.babaip.com/");
                     http.LoadHtml(html);
@@ -157,16 +170,20 @@ namespace EliteProxyGrabb.LanFunc
                     var doc = new HtmlAgilityPack.HtmlDocument();
                     doc.LoadHtml(html);
                     var tmp = doc.DocumentNode.InnerText;
-                    ;
                 }
-                Working.Add(p);
-                lall.Invoke(new Action((() => lall.Text = (int.Parse(lall.Text) + 1).ToString())));
+
+                if (Working.FirstOrDefault(o=>o.Ip==p.Ip&&o.Port==p.Port)==null)
+                {
+                    p.Number = (int.Parse(p.Number)+1).ToString();
+                    Working.Add(p);
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 BadProxy.Add(p);
             }
+            lall.Invoke(new Action((() => lall.Text = (int.Parse(lall.Text) + 1).ToString())));
             isTest = false;
             Checked?.Invoke(this, null);
         }

@@ -175,12 +175,12 @@ namespace EliteProxyGrabb
             // checkingProxies1
             // 
             this.checkingProxies1.BackColor = System.Drawing.Color.Transparent;
-            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkingProxies1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkingProxies1.Location = new System.Drawing.Point(0, 0);
             this.checkingProxies1.Name = "checkingProxies1";
             this.checkingProxies1.ProxyCompliteList = null;
             this.checkingProxies1.ProxyList = null;
-            this.checkingProxies1.Size = new System.Drawing.Size(451, 23);
+            this.checkingProxies1.Size = new System.Drawing.Size(821, 23);
             this.checkingProxies1.TabIndex = 1;
             // 
             // proxyCompliteList1
@@ -202,6 +202,7 @@ namespace EliteProxyGrabb
             // panel3
             // 
             this.panel3.Controls.Add(this.checkingProxies1);
+            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(3, 424);
@@ -211,9 +212,9 @@ namespace EliteProxyGrabb
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.label1.Location = new System.Drawing.Point(848, 0);
             this.label1.Name = "label1";
@@ -225,14 +226,14 @@ namespace EliteProxyGrabb
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::EliteProxyGrabb.Properties.Resources.tg;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(823, 424);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Location = new System.Drawing.Point(821, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 24);
+            this.pictureBox1.Size = new System.Drawing.Size(27, 23);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.Community);
@@ -243,7 +244,6 @@ namespace EliteProxyGrabb
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(908, 450);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);

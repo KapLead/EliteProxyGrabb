@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using EliteProxyGrabb.LanFunc.Release;
 
 namespace EliteProxyGrabb
 {
@@ -81,6 +82,9 @@ namespace EliteProxyGrabb
 
         private void OnShown(object sender, EventArgs e)
         {
+            checkingProxies1.Add(new Openproxyspace { NextCheck = 80 });
+            checkingProxies1.Add(new Proxy_list { NextCheck = 80 });
+            checkingProxies1.Add(new Foxtools { NextCheck = 80 });
             checkingProxies1.Add(new FreeProxyList { NextCheck = 80 });
             checkingProxies1.Add(new AdvancedName { NextCheck = 80 });
             checkingProxies1.Add(new HidemyName { NextCheck = 60 });

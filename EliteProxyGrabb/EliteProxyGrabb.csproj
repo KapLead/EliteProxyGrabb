@@ -67,10 +67,13 @@
     </Compile>
     <Compile Include="LanFunc\ExAgilityPack.cs" />
     <Compile Include="LanFunc\Finder.cs" />
+    <Compile Include="LanFunc\Release\foxtools.cs" />
     <Compile Include="LanFunc\Release\FreeProxyList.cs" />
     <Compile Include="LanFunc\Release\Freeproxyupdate.cs" />
     <Compile Include="LanFunc\Release\HidemyName.cs" />
     <Compile Include="LanFunc\IFinder.cs" />
+    <Compile Include="LanFunc\Release\Openproxyspace.cs" />
+    <Compile Include="LanFunc\Release\Proxy_list.cs" />
     <Compile Include="LanFunc\Release\SpysOne.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

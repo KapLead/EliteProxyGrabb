@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -89,6 +90,7 @@ namespace EliteProxyGrabb.LanFunc
                         NewProxy.Add(proxy);
                     CountNewProxies += newproxy.Count;
                     finder.LastCheck = DateTime.Now;
+                    lhost.Text = "";
                 }
                 catch (Exception exception)
                 {
@@ -98,12 +100,30 @@ namespace EliteProxyGrabb.LanFunc
             if (finders.Count == 0 && NewProxy.Count == 0)
             {
                 // новых сайтов для проверки нет, проверяем самые старые рабочие прокси
-                var min = DateTime.Parse(Working.Min(_p => _p.LastCheckData));
-                if (min < DateTime.Now.AddMinutes(-60))
+                try
                 {
-                    var pr = Working.FirstOrDefault(p => DateTime.Parse(p.LastCheckData) == min);
-                    Working.Remove(pr);
-                    NewProxy.Add(pr);
+                    var _min = Working.Where(_p=>_p.LastCheckData!=null).Min(_p => _p.LastCheckData);
+                    var min = DateTime.Parse(_min, new DateTimeFormatInfo(), DateTimeStyles.AdjustToUniversal);
+                    if (min < DateTime.Now.AddMinutes(-20))
+                    {
+                        var pr = Working.FirstOrDefault(p => DateTime.Parse(p.LastCheckData) == min);
+                        Working.Remove(pr);
+                        NewProxy.Add(pr);
+                    }
+                    else
+                    {
+                        var pr = Working.FirstOrDefault(p => string.IsNullOrEmpty(p.Level) || string.IsNullOrEmpty(p.Country) || string.IsNullOrEmpty(p.HostName));
+                        if (pr != null)
+                        {
+                            Working.Remove(pr);
+                            NewProxy.Add(pr);
+                        }
+
+                    }
+                }
+                catch (Exception exception)
+                {
+                    
                 }
             }
             IsChecking = false;
@@ -140,6 +160,7 @@ namespace EliteProxyGrabb.LanFunc
         {
             if (p == null || isTest || p.Protocol == null) { isTest = false; return; }
             isTest = true;
+            if (p.Protocol?.Length < 2) p.Protocol = "http";
             string protool = p.Protocol?.ToLower()?.Trim();
             try
             {

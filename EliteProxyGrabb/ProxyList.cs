@@ -30,7 +30,7 @@ namespace EliteProxyGrabb
         }
 
         private StringFormat left = new StringFormat
-            { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near };
+            { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
         private StringFormat centr = new StringFormat
             { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
@@ -54,10 +54,17 @@ namespace EliteProxyGrabb
                 new RectangleF(lcountry.Left, e.Bounds.Y, lcountry.Width, e.Bounds.Height), left);
 
             }
-            e.Graphics.DrawString(p.Level, listBox1.Font, new SolidBrush(e.ForeColor),
-                new RectangleF(llevel.Left, e.Bounds.Y, llevel.Width, e.Bounds.Height), centr);
-            e.Graphics.DrawString(p.HostName, listBox1.Font, new SolidBrush(e.ForeColor),
+
+            if (string.IsNullOrWhiteSpace(p.Level)) p.Level = " ";
+            e.Graphics.DrawString($"{p.LastCheckData} | {p.Level.Substring(0,p.Level.IndexOf(" "))}",
+                listBox1.Font, new SolidBrush(e.ForeColor),
+                new RectangleF(llevel.Left, e.Bounds.Y, llevel.Width, e.Bounds.Height), centr); ;
+            e.Graphics.DrawString($"{p.Protocol}", listBox1.Font, new SolidBrush(Color.DarkOrange),
                 new RectangleF(lhostname.Left, e.Bounds.Y, lhostname.Width, e.Bounds.Height), left);
+            e.Graphics.DrawString($"[ {p.Number} ]", listBox1.Font, new SolidBrush(e.ForeColor),
+                new RectangleF(lhostname.Left+40, e.Bounds.Y, lhostname.Width-40, e.Bounds.Height), left);
+            e.Graphics.DrawString($"{p.HostName}", listBox1.Font, new SolidBrush(Color.BurlyWood),
+                new RectangleF(lhostname.Left + 70, e.Bounds.Y, lhostname.Width - 70, e.Bounds.Height), left);
             //e.Graphics.DrawLine(Pens.DarkGray,0,e.Bounds.Bottom,e.Bounds.Width,e.Bounds.Height);
         }
     }

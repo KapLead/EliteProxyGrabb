@@ -31,11 +31,11 @@ namespace EliteProxyGrabb
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lhostname = new System.Windows.Forms.Label();
+            this.splitter3 = new System.Windows.Forms.Splitter();
             this.splitter4 = new System.Windows.Forms.Splitter();
             this.llevel = new System.Windows.Forms.Label();
-            this.splitter3 = new System.Windows.Forms.Splitter();
+            this.lhostname = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lcountry = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.lport = new System.Windows.Forms.Label();
@@ -64,10 +64,10 @@ namespace EliteProxyGrabb
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.splitter3);
             this.panel1.Controls.Add(this.splitter4);
-            this.panel1.Controls.Add(this.llevel);
             this.panel1.Controls.Add(this.lhostname);
+            this.panel1.Controls.Add(this.llevel);
+            this.panel1.Controls.Add(this.splitter3);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.lcountry);
             this.panel1.Controls.Add(this.splitter2);
@@ -83,6 +83,46 @@ namespace EliteProxyGrabb
             this.panel1.Size = new System.Drawing.Size(598, 26);
             this.panel1.TabIndex = 1;
             // 
+            // splitter3
+            // 
+            this.splitter3.BackColor = System.Drawing.Color.Gray;
+            this.splitter3.Location = new System.Drawing.Point(271, 1);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(1, 25);
+            this.splitter3.TabIndex = 5;
+            this.splitter3.TabStop = false;
+            // 
+            // splitter4
+            // 
+            this.splitter4.BackColor = System.Drawing.Color.Gray;
+            this.splitter4.Location = new System.Drawing.Point(491, 1);
+            this.splitter4.Name = "splitter4";
+            this.splitter4.Size = new System.Drawing.Size(1, 25);
+            this.splitter4.TabIndex = 7;
+            this.splitter4.TabStop = false;
+            // 
+            // llevel
+            // 
+            this.llevel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.llevel.Location = new System.Drawing.Point(272, 1);
+            this.llevel.Name = "llevel";
+            this.llevel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.llevel.Size = new System.Drawing.Size(219, 25);
+            this.llevel.TabIndex = 6;
+            this.llevel.Text = "LEVEL";
+            this.llevel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // lhostname
+            // 
+            this.lhostname.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lhostname.Location = new System.Drawing.Point(491, 1);
+            this.lhostname.Name = "lhostname";
+            this.lhostname.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lhostname.Size = new System.Drawing.Size(106, 25);
+            this.lhostname.TabIndex = 8;
+            this.lhostname.Text = "HOST NAME";
+            this.lhostname.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
@@ -91,47 +131,6 @@ namespace EliteProxyGrabb
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1, 25);
             this.panel3.TabIndex = 10;
-            // 
-            // lhostname
-            // 
-            this.lhostname.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lhostname.Location = new System.Drawing.Point(486, 1);
-            this.lhostname.Name = "lhostname";
-            this.lhostname.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lhostname.Size = new System.Drawing.Size(111, 25);
-            this.lhostname.TabIndex = 8;
-            this.lhostname.Text = "HOST NAME";
-            this.lhostname.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // splitter4
-            // 
-            this.splitter4.BackColor = System.Drawing.Color.Gray;
-            this.splitter4.Location = new System.Drawing.Point(271, 1);
-            this.splitter4.Name = "splitter4";
-            this.splitter4.Size = new System.Drawing.Size(1, 25);
-            this.splitter4.TabIndex = 7;
-            this.splitter4.TabStop = false;
-            // 
-            // llevel
-            // 
-            this.llevel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.llevel.Location = new System.Drawing.Point(271, 1);
-            this.llevel.Name = "llevel";
-            this.llevel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.llevel.Size = new System.Drawing.Size(215, 25);
-            this.llevel.TabIndex = 6;
-            this.llevel.Text = "LEVEL";
-            this.llevel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // splitter3
-            // 
-            this.splitter3.BackColor = System.Drawing.Color.Gray;
-            this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter3.Location = new System.Drawing.Point(485, 1);
-            this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(1, 25);
-            this.splitter3.TabIndex = 5;
-            this.splitter3.TabStop = false;
             // 
             // lcountry
             // 
